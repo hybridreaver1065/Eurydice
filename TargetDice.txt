@@ -1,0 +1,65 @@
+//@author Jacob Mingis de Seventh' Periode
+import java.util.Scanner; 
+public class TargetDice {
+
+	public static void main(String[] args) {
+		
+		Scanner in= new Scanner(System.in);
+		
+		Dice die1 = new Dice();
+		Dice die2 = new Dice();
+		
+		
+		
+		
+		System.out.print("Please enter in an integer between 2 and 12");
+		
+		//Just get an int for target so I can incorporate it into another while loop
+		while (!in.hasNextInt()) {
+		in.nextLine();
+		System.out.print("Please enter in an integer between 2 and 12");
+		
+		}
+		
+		int target = in.nextInt();
+		//loop to check if value given is between max and min
+		while (12< target || target < 2) {
+			System.out.print("Please enter in an integer between 2 and 12");
+			//Repeat of the other loop to prevent non-integers
+			while (!in.hasNextInt()) {
+				in.nextLine();
+				System.out.print("Please enter in an integer between 2 and 12");
+				
+				}
+			
+			target = in.nextInt();	
+		}
+			
+				
+		
+		//Game loop
+		boolean gamewon = false;
+		while (!gamewon) {
+		int face1 = die1.roll();
+		int face2 = die2.roll();
+		if (face1+face2 != target) {
+			System.out.println("You rolled a " + face1+ " and a "+ face2+" so you did not roll your target");
+		}
+		else if (face1+face2 == target) {
+			gamewon= true;
+			System.out.println("You rolled a " + face1+ " and a "+ face2+" and hit the target");
+		}
+		
+		
+		
+		
+		
+		
+		
+		}
+		
+		System.out.println("It took you "+ die1.getRolls()+ " rolls to hit the target" );
+		//Check to make sure it terminated
+		System.out.print("Bourgeoisie");
+	}
+}
